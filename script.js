@@ -33,34 +33,26 @@ for (const ukol of ukoly) {
     })
 }
 
-document.getElementById("filtr_splneno").addEventListener("click", () => {
+function filtrovat_ukoly(filtrovany) {
     for (const ukol of ukoly) {
-        if(ukol.className == "splneny") {
+        if(ukol.className == filtrovany) {
             ukol.style.display = ""
         } else {
             ukol.style.display = "none"
         }
     }
+}
+
+document.getElementById("filtr_splneno").addEventListener("click", () => {
+    filtrovat_ukoly("splneny")
 })
 
 document.getElementById("filtr_nesplneno").addEventListener("click", () => {
-    for (const ukol of ukoly) {
-        if(ukol.className == "nesplneny") {
-            ukol.style.display = ""
-        } else {
-            ukol.style.display = "none"
-        }
-    }
+    filtrovat_ukoly("nesplneny")
 })
 
 document.getElementById("filtr_rozpracovano").addEventListener("click", () => {
-    for (const ukol of ukoly) {
-        if(ukol.className == "rozpracovany") {
-            ukol.style.display = ""
-        } else {
-            ukol.style.display = "none"
-        }
-    }
+    filtrovat_ukoly("rozpracovany")
 })
 
 document.getElementById("filtr_vsechny").addEventListener("click", () => {
